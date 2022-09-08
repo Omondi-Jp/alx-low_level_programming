@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- *main- Entry poit 
+ *main-Entry poit
  *
  *Return: Always 1 (Success)
  */
