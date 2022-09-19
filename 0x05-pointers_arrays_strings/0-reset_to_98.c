@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * reset- resets the value it points to 98.
+ * reset_to_98- resets the value it points to 98.
  *
  * @n: the pointer to an int
  */
