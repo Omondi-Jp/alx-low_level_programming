@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -5,7 +6,7 @@
  * @s: The pointer.
  * @to: The char.
  */
-void set_string(char **s, char *to)
+char set_string(char **s, char *to)
 {
 	*s = to;
 }
