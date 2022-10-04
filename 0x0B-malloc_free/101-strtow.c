@@ -18,7 +18,7 @@ char **strtow(char *str)
 	{
 		if (!(*ptr == ' ') && (*(ptr + 1) == ' ' || *(ptr + 1) == 0))
 			wc++;
-			ptr++;
+		ptr++;
 	}
 	if (wc == 0)
 		return (NULL);
