@@ -5,10 +5,7 @@
 
 
 /**
-
- *  * struct dog - a dog
-
-
+ * struct dog - a dog
  *
  * @name: dog's name
  *
