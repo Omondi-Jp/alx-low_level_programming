@@ -47,15 +47,13 @@ int main(int ac, char *av[])
 
 	if (n > 0)
 
-		printf("%02x", *f++);
+		printf("%x", *f++);
 
 	for (i = 1; i < n; i++)
 
-		printf(" %02x", *f++);
+		printf(" %x", *f++);
 
-	if (n > 0)
-
-		printf("\n");
+	printf("\n");
 
 	return (0);
 
