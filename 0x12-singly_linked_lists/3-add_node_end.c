@@ -1,28 +1,55 @@
-#include "lists.h"
 #include <stdlib.h>
+#include <string.h>
+#include "lists.h"
 
 /**
- * free_list - free a list_t list
+ * add_node_end - adds a node to the end of a list_t list
  *
- * @head: head of list to free
+ * @head: node to add a node after
+ * @str: string to put in new node
  *
- * Return: void
+ * Return: address of new element
  */
-void free_list(list_t *head)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *next;
+	char *newstr, *ptr;
+	list_t *newnode, *lastnode = NULL;
+	int len = 0;
 
-	if (head == NULL)
-		return;
-	*next = head->next;
-
-	while (head != NULL)
+	if (str != NULL)
 	{
-		if (head->str != NULL)
-			free(head->str);
-		free(head);
-		head = next;
-		if (head != NULL)
-			next = head->next;
+		ptr = (char *) str;
+		while (*ptr++)
+			len++;
+		newstr = malloc(sizeof(char) * (len + 1));
+		if (newstr == NULL)
+			return (NULL);
+
+		ptr = newstr;
+		while (*str)
+			*ptr++ = *str++;
 	}
+	else
+		newstr = NULL;
+
+	if (*head != NULL)
+	{
+		lastnode = *head;
+		while (lastnode->next != NULL)
+			lastnode = lastnode->next;
+	}
+	newnode = malloc(sizeof(list_t));
+	if (newnode == NULL)
+	{
+		free(newstr);
+		return (NULL);
+	}
+
+	if (*head == NULL)
+		*head = newnode;
+	if (lastnode != NULL)
+		lastnode->next = newnode;
+	newnode->str = newstr;
+	newnode->len = len;
+	return (newnode);
 }
